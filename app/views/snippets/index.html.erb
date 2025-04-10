@@ -4,13 +4,19 @@
 
 <h1>Snippets</h1>
 
-<div id="snippets">
+<div id="snippets" style="display: flex; flex-direction: column; gap: 1.5rem;">
   <% @snippets.each do |snippet| %>
-    <%= render snippet %>
-    <p>
-      <%= link_to "Show this snippet", snippet %>
-    </p>
+    <div style="border: 5px solid #ccc; border-radius: 10px; padding: 1rem; box-shadow: 2px 2px 5px rgba(0,0,0,0.1);">
+      <%= render snippet %>
+      <div style="margin-top: 1rem;">
+        <%= link_to "Show", snippet, class: "btn" %>
+        <%= link_to "Edit", edit_snippet_path(snippet), class: "btn" %>
+        <%= link_to "Delete", snippet, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+      </div>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New snippet", new_snippet_path %>
+<div style="margin-top: 2rem;">
+  <%= link_to "New Snippet", new_snippet_path, class: "btn btn-primary" %>
+</div>
