@@ -17,8 +17,18 @@
   </div>
 
   <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.textarea :content %>
+    <%= form.label :language %>
+    <%= form.text_field :language %>
+  </div>
+
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :codeSnippet, style: "display: block" %>
+    <%= form.textarea :codeSnippet %>
   </div>
 
   <div>

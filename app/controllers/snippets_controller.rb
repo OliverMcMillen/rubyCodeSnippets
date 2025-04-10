@@ -65,6 +65,6 @@ class SnippetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def snippet_params
-      params.expect(snippet: [ :user, :content ])
+      params.expect(snippet: [ :user, :codeSnippet, :language, :description ])
     end
 end
