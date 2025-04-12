@@ -1,12 +1,12 @@
-<% content_for :title, "Editing snippet" %>
+<% content_for :title, "Editing Snippet" %>
 
-<h1>Editing snippet</h1>
+<h1 class="page-title">Edit Snippet</h1>
 
-<%= render "form", snippet: @snippet %>
+<div class="form-container">
+  <%= render "form", snippet: @snippet %>
+</div>
 
-<br>
-
-<div>
-  <%= link_to "Show this snippett", @snippet %> |
-  <%= link_to "Back to snippets", snippets_path %>
+<div class="back-link">
+  <%= link_to "Show this snippet", @snippet, class: "btn" %>
+  <%= link_to "Back to snippets", snippets_path, class: "btn back-button" %>
 </div>
