@@ -61,6 +61,16 @@ p[style*="color: green"] {
 .CodeRay .local-var     { color: #dcdcdc; }   /* var */
 .CodeRay .global-var    { color: #f59762; }   /* $var */
 
+/* Extended Highlighting */
+.CodeRay .constant       { color: #4fc1ff; font-weight: bold; }
+.CodeRay .symbol         { color: #b267e6; font-style: italic; }
+.CodeRay .predefined     { color: #569cd6; }
+.CodeRay .attribute-name { color: #c586c0; }
+.CodeRay .regex          { color: #d16969; }
+.CodeRay .escape         { color: #dcdcaa; }
+.CodeRay .punctuation    { color: #d4d4d4; }
+.CodeRay .delimiter      { color: #808080; }
+
 /* Copy to clipboard button */
 #copyButton {
     background-color: #4CAF50;
