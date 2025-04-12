@@ -1,22 +1,23 @@
-<p style="color: green"><%= notice %></p>
+<p class="notice"><%= notice %></p>
 
 <% content_for :title, "Snippets" %>
 
-<h1>Snippets</h1>
+<h1 class="page-title">Snippets</h1>
 
-<div id="snippets" style="display: flex; flex-direction: column; gap: 1.5rem;">
+<div id="snippets" class="snippet-list">
   <% @snippets.each do |snippet| %>
-    <div style="border: 5px solid #ccc; border-radius: 10px; padding: 1rem; box-shadow: 2px 2px 5px rgba(0,0,0,0.1);">
+    <div class="snippet-card">
       <%= render snippet %>
-      <div style="margin-top: 1rem;">
-        <%= link_to "Show", snippet, class: "btn" %>
-        <%= link_to "Edit", edit_snippet_path(snippet), class: "btn" %>
+
+      <div class="snippet-actions">
+        <%= link_to "Show", snippet, class: "btn btn-show" %>
+        <%= link_to "Edit", edit_snippet_path(snippet), class: "btn btn-edit" %>
         <%= link_to "Delete", snippet, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
       </div>
     </div>
   <% end %>
 </div>
 
-<div style="margin-top: 2rem;">
+<div class="new-snippet-link">
   <%= link_to "New Snippet", new_snippet_path, class: "btn btn-primary" %>
 </div>
