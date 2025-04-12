@@ -1,11 +1,11 @@
-<% content_for :title, "New snippet" %>
+<% content_for :title, "New Snippet" %>
 
-<h1>New snippet</h1>
+<h1 class="page-title"> New Snippet</h1>
 
-<%= render "form", snippet: @snippet %>
+<div class="form-container">
+  <%= render "form", snippet: @snippet %>
+</div>
 
-<br>
-
-<div>
-  <%= link_to "Back to snippets", snippets_path %>
+<div class="back-link">
+  <%= link_to "Back to all snippets", snippets_path, class: "back-button" %>
 </div>
