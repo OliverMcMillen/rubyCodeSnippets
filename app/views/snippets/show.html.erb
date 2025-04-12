@@ -1,10 +1,46 @@
+<!-- Green success message -->
 <p style="color: green"><%= notice %></p>
 
-<%= render @snippet %>
+<!-- Display the language as a heading -->
+<h2><%= @snippet.language.capitalize %> Code</h2>
 
-<div>
-  <%= link_to "Edit this snippet", edit_snippet_path(@snippet) %> |
-  <%= link_to "Back to snippets", snippets_path %>
+<!-- Copy to clipboard button -->
+<button id="copyButton" style="margin-bottom: 10px;">Copy Code</button>
 
-  <%= button_to "Destroy this snippet", @snippet, method: :delete %>
+<!-- CodeRay renders syntax-highlighted code here -->
+<%= CodeRay.scan(@snippet.codeSnippet, @snippet.language.downcase.to_sym).div(css: :class).html_safe %>
+
+<!-- Description for the snippet -->
+<p><strong>Description:</strong></p>
+<p><%= simple_format(@snippet.description) %></p>
+
+<!-- Links for edit, back, and delete -->
+<div class="snippet-actions">
+  <%= link_to "Edit this snippet", edit_snippet_path(@snippet), class: "btn btn-blue" %>
+  <%= link_to "Back to snippets", snippets_path, class: "btn btn-blue" %>
 </div>
+
+<div class="snippet-actions">
+  <%= button_to "Destroy this snippet", @snippet, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+</div>
+
+<!-- JS: Copy CodeRay code block to clipboard -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const button = document.getElementById("copyButton");
+        const codeContainer = document.querySelector(".CodeRay"); // selects rendered code
+
+        button.addEventListener("click", () => {
+            const tempElement = document.createElement("textarea"); // create hidden input
+            tempElement.value = codeContainer.innerText;            // fill with code text
+            document.body.appendChild(tempElement);                 // add to page temporarily
+            tempElement.select();                                   // select text
+            document.execCommand("copy");                           // execute copy
+            document.body.removeChild(tempElement);                 // remove input
+            button.innerText = "Copied!";                           // feedback message
+            setTimeout(() => {
+                button.innerText = "Copy Code";                       // reset button text
+            }, 2000);
+        });
+    });
+</script>
