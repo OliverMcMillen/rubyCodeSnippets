@@ -45,39 +45,96 @@ p[style*="color: green"] {
     margin-bottom: 20px;
 }
 
-/* Highlighting core syntax */
-.CodeRay .comment       { color: #6a9955; font-style: italic; }
-.CodeRay .string        { color: #ce9178; }
-.CodeRay .char          { color: #d7ba7d; }
-.CodeRay .keyword       { color: #c586c0; font-weight: bold; }
-.CodeRay .method        { color: #dcdcaa; }
-.CodeRay .class         { color: #4ec9b0; }
-.CodeRay .type          { color: #4ec9b0; }
-.CodeRay .number        { color: #b5cea8; }
-.CodeRay .operator      { color: #d4d4d4; }
+/* ------------------------------------
+   Highlighting Core Syntax (General)
+------------------------------------- */
+.CodeRay .comment        { color: #6a9955; font-style: italic; }    /* Inline & block comments */
+.CodeRay .string         { color: #ce9178; }                        /* "string literals" */
+.CodeRay .char           { color: #d7ba7d; }                        /* Character literals like 'c' */
+.CodeRay .keyword        { color: #c586c0; font-weight: bold; }     /* Keywords like if, else, def */
+.CodeRay .method         { color: #dcdcaa; }                        /* Method names */
+.CodeRay .class          { color: #4ec9b0; }                        /* Class declarations */
+.CodeRay .type           { color: #4ec9b0; }                        /* Data types like int, float */
+.CodeRay .number         { color: #b5cea8; }                        /* Numeric values */
+.CodeRay .operator       { color: #d4d4d4; }                        /* +, -, *, /, == */
 
-/* Variables */
-.CodeRay .instance-var  { color: #9cdcfe; }
-.CodeRay .local-var     { color: #dcdcdc; }
-.CodeRay .global-var    { color: #f59762; }
+/* ------------------------------------
+   Variable Types
+------------------------------------- */
+.CodeRay .instance-var   { color: #9cdcfe; }                        /* Instance variables (e.g., @var) */
+.CodeRay .local-var      { color: #dcdcdc; }                        /* Local variables */
+.CodeRay .global-var     { color: #f59762; }                        /* Global variables (e.g., $var) */
 
-/* Extended Highlighting */
-.CodeRay .constant       { color: #4fc1ff; font-weight: bold; }
-.CodeRay .symbol         { color: #b267e6; font-style: italic; }
-.CodeRay .predefined     { color: #569cd6; }
-.CodeRay .attribute-name { color: #c586c0; }
-.CodeRay .regex          { color: #d16969; }
-.CodeRay .escape         { color: #dcdcaa; }
-.CodeRay .punctuation    { color: #d4d4d4; }
-.CodeRay .delimiter      { color: #808080; }
+/* ------------------------------------
+   Extended Highlighting
+------------------------------------- */
+.CodeRay .constant        { color: #4fc1ff; font-weight: bold; }   /* Constants (e.g., PI) */
+.CodeRay .symbol          { color: #b267e6; font-style: italic; }  /* Symbols (:symbol in Ruby) */
+.CodeRay .predefined      { color: #569cd6; }                      /* Predefined keywords/functions */
+.CodeRay .attribute-name  { color: #c586c0; }                      /* Attribute names in HTML, Ruby */
+.CodeRay .regex           { color: #d16969; }                      /* Regular expressions */
+.CodeRay .escape          { color: #dcdcaa; }                      /* Escape characters (\n, \t) */
+.CodeRay .punctuation     { color: #d4d4d4; }                      /* Commas, colons, etc. */
+.CodeRay .delimiter       { color: #808080; }                      /* Delimiters like {}, [], () */
 
-/* Function call (if different from .method) */
-.CodeRay .function        { color: #dcdcaa; }
+/* ------------------------------------
+   C / C++ / Java Specific
+------------------------------------- */
+.CodeRay .directive       { color: #569cd6; font-weight: bold; }   /* Preprocessor directives (#include) */
+.CodeRay .preprocessor    { color: #d16969; font-weight: bold; }   /* Macros (#define, etc.) */
+.CodeRay .namespace       { color: #4ec9b0; font-style: italic; }  /* Namespaces (e.g., std) */
+.CodeRay .builtin         { color: #dcdcaa; }                      /* Built-in types (int, float) */
+.CodeRay .identifier      { color: #d4d4d4; }                      /* Variable and function names */
+.CodeRay .bracket         { color: #d4d4d4; }                      /* Braces and brackets */
 
-/* HTML/CSS specific (if highlighting HTML, XML, etc.) */
-.CodeRay .tag             { color: #569cd6; }
-.CodeRay .attribute       { color: #9cdcfe; }
-.CodeRay .value           { color: #ce9178; }
+/* ------------------------------------
+   Python Specific
+------------------------------------- */
+.CodeRay .symbol          { color: #b267e6; font-style: italic; }  /* Function or variable names */
+.CodeRay .instance-var    { color: #9cdcfe; }                      /* self.var */
+.CodeRay .decorator       { color: #dcdcaa; font-style: italic; } /* @decorator syntax */
+
+/* ------------------------------------
+   HTML/CSS Specific
+------------------------------------- */
+.CodeRay .tag             { color: #569cd6; }                      /* HTML tags (<div>) */
+.CodeRay .attribute       { color: #9cdcfe; }                      /* HTML attributes (href, class) */
+.CodeRay .value           { color: #ce9178; }                      /* Attribute values ("container") */
+
+/* ------------------------------------
+   Ruby Specific
+------------------------------------- */
+.CodeRay .global-var      { color: #f59762; }                      /* $global_var */
+.CodeRay .local-var       { color: #dcdcdc; }                      /* Local variables */
+.CodeRay .attribute-name  { color: #c586c0; }                      /* attr_reader, etc. */
+.CodeRay .symbol          { color: #b267e6; }                      /* :symbol */
+
+/* ------------------------------------
+   JavaScript Specific
+------------------------------------- */
+.CodeRay .constant        { color: #4fc1ff; }                      /* Constants like const PI */
+.CodeRay .function        { color: #dcdcaa; font-weight: bold; }  /* Function definitions */
+
+/* ------------------------------------
+   SQL Specific
+------------------------------------- */
+.CodeRay .sql-keyword     { color: #c586c0; font-weight: bold; }  /* SELECT, WHERE */
+.CodeRay .sql-function    { color: #dcdcaa; }                     /* COUNT(), MAX(), etc. */
+.CodeRay .table-name      { color: #4fc1ff; }                     /* Table or DB names */
+
+/* ------------------------------------
+   JSON & YAML
+------------------------------------- */
+.CodeRay .json-key        { color: #9cdcfe; }                     /* "key" */
+.CodeRay .json-value      { color: #ce9178; }                     /* "value" */
+.CodeRay .yaml-symbol     { color: #b267e6; }                     /* key: value */
+
+/* ------------------------------------
+   Shell / Bash
+------------------------------------- */
+.CodeRay .shell-command   { color: #dcdcaa; font-style: italic; } /* ls, cd, etc. */
+.CodeRay .shell-variable  { color: #9cdcfe; }                     /* $PATH, $USER */
+
 
 /* Copy to clipboard button */
 #copyButton {
