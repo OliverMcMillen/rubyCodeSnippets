@@ -57,9 +57,9 @@ p[style*="color: green"] {
 .CodeRay .operator      { color: #d4d4d4; }
 
 /* Variables */
-.CodeRay .instance-var  { color: #9cdcfe; }   /* @var */
-.CodeRay .local-var     { color: #dcdcdc; }   /* var */
-.CodeRay .global-var    { color: #f59762; }   /* $var */
+.CodeRay .instance-var  { color: #9cdcfe; }
+.CodeRay .local-var     { color: #dcdcdc; }
+.CodeRay .global-var    { color: #f59762; }
 
 /* Extended Highlighting */
 .CodeRay .constant       { color: #4fc1ff; font-weight: bold; }
@@ -70,6 +70,14 @@ p[style*="color: green"] {
 .CodeRay .escape         { color: #dcdcaa; }
 .CodeRay .punctuation    { color: #d4d4d4; }
 .CodeRay .delimiter      { color: #808080; }
+
+/* Function call (if different from .method) */
+.CodeRay .function        { color: #dcdcaa; }
+
+/* HTML/CSS specific (if highlighting HTML, XML, etc.) */
+.CodeRay .tag             { color: #569cd6; }
+.CodeRay .attribute       { color: #9cdcfe; }
+.CodeRay .value           { color: #ce9178; }
 
 /* Copy to clipboard button */
 #copyButton {
