@@ -4,6 +4,20 @@
 
 <h1 class="page-title">Snippets</h1>
 
+
+
+<%= form_with url: snippets_path, method: :get, local: true do %>
+  <label for="language">Filter by:</label>
+  <%= select_tag :language, options_for_select(Snippet.distinct.pluck(:language).sort, params[:language]), include_blank: "All Languages" %>
+  <%= select_tag :user, options_for_select(Snippet.distinct.pluck(:user).sort, params[:user]), include_blank: "All users" %>
+  <%= submit_tag "Filter", class: "btn btn-filter" %>
+<% end %>
+
+<div class="new-snippet-link">
+  <br>
+  <%= link_to "New Snippet", new_snippet_path, class: "btn btn-primary" %>
+</div>
+
 <div id="snippets" class="snippet-list">
   <% @snippets.each do |snippet| %>
     <div class="snippet-card">
@@ -18,6 +32,3 @@
   <% end %>
 </div>
 
-<div class="new-snippet-link">
-  <%= link_to "New Snippet", new_snippet_path, class: "btn btn-primary" %>
-</div>

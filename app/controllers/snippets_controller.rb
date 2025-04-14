@@ -57,6 +57,19 @@ class SnippetsController < ApplicationController
     end
   end
 
+  def index
+    if params[:language].present?
+      @snippets = Snippet.where(language: params[:language])
+    else
+      @snippets = Snippet.all
+    end
+    if params[:user].present?
+      @snippets = Snippet.where(user: params[:user])
+    else
+      @snippets = Snippet.all
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_snippet
@@ -67,4 +80,6 @@ class SnippetsController < ApplicationController
     def snippet_params
       params.expect(snippet: [ :user, :codeSnippet, :language, :description ])
     end
+
+
 end
