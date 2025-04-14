@@ -63,11 +63,6 @@ class SnippetsController < ApplicationController
     else
       @snippets = Snippet.all
     end
-    if params[:user].present?
-      @snippets = Snippet.where(user: params[:user])
-    else
-      @snippets = Snippet.all
-    end
   end
 
   private

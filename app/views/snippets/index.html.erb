@@ -9,7 +9,6 @@
 <%= form_with url: snippets_path, method: :get, local: true do %>
   <label for="language">Filter by:</label>
   <%= select_tag :language, options_for_select(Snippet.distinct.pluck(:language).sort, params[:language]), include_blank: "All Languages" %>
-  <%= select_tag :user, options_for_select(Snippet.distinct.pluck(:user).sort, params[:user]), include_blank: "All users" %>
   <%= submit_tag "Filter", class: "btn btn-filter" %>
 <% end %>
 
