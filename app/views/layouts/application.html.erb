@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <style>
+        #snippets {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .snippet-card {
+            width: 30%;
+            margin: 1rem;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .snippet-card {
+                width: 100%;
+            }
+        }
+    </style>
     <title><%= content_for(:title) || "Ruby Code Snippets" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">

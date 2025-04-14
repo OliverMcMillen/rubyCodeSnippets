@@ -1,5 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
+<div style="width: 30%;">
+
+
 <h2><%= @snippet.language.capitalize %> Code</h2>
 
 <button id="copyButton" style="margin-bottom: 10px;">Copy Code</button>
@@ -11,8 +14,8 @@
 <p><%= simple_format(@snippet.description) %></p>
 
 <div class="snippet-actions">
-  <%= link_to "Edit this snippet", edit_snippet_path(@snippet), class: "btn btn-blue" %>
   <%= link_to "Back to snippets", snippets_path, class: "btn btn-blue" %>
+  <%= link_to "Edit this snippet", edit_snippet_path(@snippet), class: "btn btn-blue" %>
 </div>
 
 <div class="snippet-actions">
