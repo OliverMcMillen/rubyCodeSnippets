@@ -12,19 +12,22 @@
 
   <div>
     <%= form.label :user, style: "display: block" %>
-    <%= form.text_field :user %>
+    <%= form.text_field :user, required: true %>
   </div>
 
   <div>
     <%= form.label :language, style: "display: block" %>
-    <%= form.select :language, grouped_options_for_select({
-                                                            "Frontend" => ['css', 'html', 'javascript'],
-                                                            "Backend" => ['c', 'clojure', 'cpp', 'delphi', 'groovy', 'java', 'json', 'lua', 'perl', 'php', 'python', 'ruby'],
-                                                            "Markup / Templating" => ['erb', 'haml', 'rhtml', 'xhtml', 'xml', 'yaml'],
-                                                            "Data / Config" => ['json', 'yaml'],
-                                                            "Misc / Tools" => ['diff', 'sass', 'sql', 'taskpaper', 'text'],
-                                                            "Other" => ["other languages(Coderay does not support it WILL NOT COLOR CODE )"]
-                                                          }.transform_values { |langs| langs.sort }, snippet.language), { prompt: "-- Select a Language --" } %>
+    <%= form.select :language,
+                    grouped_options_for_select({
+                                                 "Frontend" => ['css', 'html', 'javascript'],
+                                                 "Backend" => ['c', 'clojure', 'cpp', 'delphi', 'groovy', 'java', 'json', 'lua', 'perl', 'php', 'python', 'ruby'],
+                                                 "Markup / Templating" => ['erb', 'haml', 'rhtml', 'xhtml', 'xml', 'yaml'],
+                                                 "Data / Config" => ['json', 'yaml'],
+                                                 "Misc / Tools" => ['diff', 'sass', 'sql', 'taskpaper', 'text'],
+                                                 "Other" => ["other languages(Coderay does not support it WILL NOT COLOR CODE )"]
+                                               }.transform_values { |langs| langs.sort }, snippet.language),
+                    { prompt: "-- Select a Language --" },
+                    { required: true } %>
   </div>
 
   <div>
@@ -34,10 +37,11 @@
 
   <div>
     <%= form.label :codeSnippet, style: "display: block" %>
-    <%= form.text_area :codeSnippet %>
+    <%= form.text_area :codeSnippet, required: true %>
   </div>
 
   <div>
     <%= form.submit class: "btn btn-success" %>
   </div>
 <% end %>
+
